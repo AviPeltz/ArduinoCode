@@ -1,0 +1,31 @@
+const int X_pin = 0; // analog pin connected to X output
+const int Y_pin = 1; // analog pin connected to Y output
+//volatile int i=0;//initializing a integer for incrementing and decrementing duty ratio.
+
+void setup() {
+ pinMode(6,OUTPUT);//yellow wire on arduino
+ //analogWrite(6, 215); //215 is rough max 4.3V
+ Serial.begin(9600);
+}
+
+void loop() {
+ // put your main code here, to run repeatedly:
+ //analogWrite(6, i); //215 is rough max 4.3V
+ //Serial.print("Y-axis: ");
+ //Serial.println(analogRead(Y_pin));
+ //Serial.print("\n\n");
+ //delay(500);
+ if (analogRead(Y_pin) == 0){
+   analogWrite(6, 215); //215 is rough max 4.3V
+   Serial.print("Y-axis: ");
+   Serial.println(analogRead(Y_pin));
+   delay(500);
+ }
+ if (analogRead(Y_pin) == 532){
+   analogWrite(6, 0); //215 is rough max 4.3V
+   Serial.print("Y-axis: ");
+   Serial.println(analogRead(Y_pin));
+   delay(500);
+ }
+ 
+}
